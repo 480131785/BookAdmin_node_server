@@ -11,6 +11,7 @@ var cors = require('cors'); // 配置跨域
 const jwtAuth = require('./utils/jwt') // 鉴权
 
 var usersRouter = require('./routes/userRoute');
+var bookInfoRoute = require('./routes/bookInfoRoute');
 
 require('./dao/database.js')
 
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(jwtAuth)
 
 app.use('/users', usersRouter);
+app.use('/books', bookInfoRoute);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
